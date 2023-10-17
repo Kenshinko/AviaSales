@@ -1,0 +1,70 @@
+body {
+  background: #f3f7fa;
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 750px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  padding-top: 10px;
+
+  &__logo {
+    width: 82px;
+    height: 89px;
+  }
+}
+
+.main {
+  display: flex;
+  column-gap: 20px;
+
+  @media (max-width: 730px) {
+    margin: 0 auto;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+}
+
+.sidebar {
+  width: 230px;
+
+  @media (max-width: 730px) {
+    width: 100%;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  row-gap: 20px;
+  max-width: 500px;
+
+  &__addTicketsBtn {
+    color: #fff;
+    font-family: 'Open Sans';
+    font-size: 1em;
+    font-weight: 600;
+    line-height: 1.66em;
+    letter-spacing: 0.5px;
+    text-align: center;
+    text-transform: uppercase;
+
+    padding: 15px 20px;
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #2196f3;
+    cursor: pointer;
+  }
+}
