@@ -1,27 +1,49 @@
-import { useState } from 'react';
+import { connect } from 'react-redux';
 import classNames from 'classnames';
+
+import { actionSetActiveBtn } from '../../actions/btnsActions';
 
 import style from './FiltersBtns.module.scss';
 
-export default function FiltersBtns() {
-  const possibleOptions = ['Самый дешевый', 'Самый быстрый', 'Оптимальный'];
-  const defaultCheckedBtn = 'Самый дешевый';
-
-  const [activeBtn, setActiveBtn] = useState(defaultCheckedBtn);
+function FiltersBtns(props) {
+  const { currentBtn, btnsList, handleSetActiveBtn } = props;
 
   const filters = (filtersList) => {
     return filtersList.map((filterBtn) => {
       const btnClass = classNames(style['content__filterBtn'], {
-        [style.active]: filterBtn === activeBtn,
+        [style.active]: filterBtn === currentBtn,
       });
 
       return (
-        <button className={btnClass} key={filterBtn} onClick={() => setActiveBtn(filterBtn)}>
+        <button
+          className={btnClass}
+          key={filterBtn}
+          onClick={() => handleSetActiveBtn(filterBtn)}
+        >
           {filterBtn}
         </button>
       );
     });
   };
 
-  return <div className={style['content__filtersBtns']}>{filters(possibleOptions)}</div>;
+  return <div className={style['content__filtersBtns']}>{filters(btnsList)}</div>;
 }
+
+const mapStateToProps = ({ btns }) => {
+  const { currentBtn, btnsList } = btns;
+
+  return {
+    btnsList,
+    currentBtn,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleSetActiveBtn: (name) => {
+      dispatch(actionSetActiveBtn(name));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FiltersBtns);
