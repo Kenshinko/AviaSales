@@ -1,4 +1,4 @@
-import { GET_SEARCHID, GET_TICKETS, GET_MORETICKETS } from './actionTypes';
+import { GET_SEARCHID, FETCH_TICKETS, GET_TICKETS, ERROR_ON, ERROR_OFF } from './actionTypes';
 
 const URL = 'https://aviasales-test-api.kata.academy';
 
@@ -9,21 +9,20 @@ export const actionGetSearchId = () => {
       const result = await response.json();
       dispatch({ type: GET_SEARCHID, data: result.searchId });
     } catch (error) {
-      console.log(error);
+      dispatch({ type: ERROR_ON, data: error });
     }
   };
 };
 
-export const actionGetTickets = (searchId) => {
+export const actionFetchTickets = (searchId) => {
   return (dispatch) => {
     const fetchTickets = async () => {
       try {
         const response = await fetch(`${URL}/tickets?searchId=${searchId}`);
         const result = await response.json();
-        dispatch({ type: GET_TICKETS, data: result });
+        dispatch({ type: FETCH_TICKETS, data: result });
       } catch (error) {
-        console.log(error);
-        fetchTicketsInterval();
+        dispatch({ type: ERROR_ON, data: error });
       }
     };
 
@@ -37,6 +36,18 @@ export const actionGetTickets = (searchId) => {
   };
 };
 
-export const actionGetMoreTickets = () => {
-  return { type: GET_MORETICKETS };
+export const actionAwaitRepeatRequest = () => {
+  return (dispatch) => {
+    const awaitFetchTry = () => {
+      setTimeout(() => {
+        dispatch({ type: ERROR_OFF });
+      }, 2500);
+    };
+
+    awaitFetchTry();
+  };
+};
+
+export const actionGetTickets = () => {
+  return { type: GET_TICKETS };
 };

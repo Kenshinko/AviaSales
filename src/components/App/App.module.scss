@@ -15,12 +15,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   height: 150px;
   padding-top: 10px;
 
   &__logo {
     width: 82px;
     height: 89px;
+    z-index: 1;
   }
 }
 
