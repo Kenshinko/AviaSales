@@ -1,3 +1,6 @@
+import { useDispatch } from 'react-redux';
+
+import { actionGetMoreTickets } from '../../actions/ticketsActions';
 import FiltersList from '../FiltersList';
 import FiltersBtns from '../FiltersBtns';
 import TicketsLists from '../TicketsLists';
@@ -6,6 +9,8 @@ import logo from '../../assets/logo.png';
 import style from './App.module.scss';
 
 export default function App() {
+  const dispatch = useDispatch();
+
   return (
     <div className={style['app']}>
       <header className={style['header']}>
@@ -18,7 +23,12 @@ export default function App() {
         <section className={style['content']}>
           <FiltersBtns />
           <TicketsLists />
-          <button className={style['content__addTicketsBtn']}>Показать еще 5 билетов!</button>
+          <button
+            className={style['content__addTicketsBtn']}
+            onClick={() => dispatch(actionGetMoreTickets())}
+          >
+            Показать еще 5 билетов!
+          </button>
         </section>
       </main>
     </div>

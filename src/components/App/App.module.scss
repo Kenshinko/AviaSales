@@ -27,6 +27,7 @@ body {
 .main {
   display: flex;
   column-gap: 20px;
+  padding-bottom: 60px;
 
   @media (max-width: 730px) {
     margin: 0 auto;
