@@ -2,11 +2,11 @@ import { TOGGLE_FILTER } from '../actions/actionTypes';
 
 // ************** STATE ************** //
 const filters = [
-  { name: 'Все', id: 'all', isActive: false },
-  { name: 'Без пересадок', id: 'no-transfers', isActive: true },
-  { name: '1 пересадка', id: 'one-transfer', isActive: false },
-  { name: '2 пересадки', id: 'two-transfers', isActive: false },
-  { name: '3 пересадки', id: 'three-transfers', isActive: false },
+  { name: 'Все', id: 'all', isActive: false, value: -1 },
+  { name: 'Без пересадок', id: 'no-transfers', isActive: true, value: 0 },
+  { name: '1 пересадка', id: 'one-transfer', isActive: false, value: 1 },
+  { name: '2 пересадки', id: 'two-transfers', isActive: false, value: 2 },
+  { name: '3 пересадки', id: 'three-transfers', isActive: false, value: 3 },
 ];
 // *********************************** //
 
