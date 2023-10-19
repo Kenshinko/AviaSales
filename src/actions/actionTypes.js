@@ -8,3 +8,4 @@ export const GET_MORETICKETS = 'GET_MORETICKETS';
 
 export const LOADING_ON = 'LOADING_ON';
 export const LOADING_OFF = 'LOADING_OFF';
+export const TOGGLE_BUTTON = 'TOGGLE_BUTTON';
