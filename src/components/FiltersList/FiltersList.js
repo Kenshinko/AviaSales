@@ -34,19 +34,3 @@ export default function FiltersList() {
     </div>
   );
 }
-
-const mapStateToProps = ({ filters }) => {
-  return {
-    filtersList: filters,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    toggleFilter: (id, isActive) => {
-      dispatch(actionToggleFilter(id, isActive));
-    },
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(FiltersList);

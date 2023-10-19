@@ -29,22 +29,3 @@ export default function FiltersBtns() {
 
   return <div className={style['content__filtersBtns']}>{renderFilters(btnsList)}</div>;
 }
-
-const mapStateToProps = ({ btns }) => {
-  const { currentBtn, btnsList } = btns;
-
-  return {
-    btnsList,
-    currentBtn,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    handleSetActiveBtn: (name) => {
-      dispatch(actionSetActiveBtn(name));
-    },
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(FiltersBtns);
