@@ -8,4 +8,3 @@ export const GET_TICKETS = 'GET_TICKETS';
 
 export const ERROR_ON = 'ERROR_ON';
 export const ERROR_OFF = 'ERROR_OFF';
-
