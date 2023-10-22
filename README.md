@@ -1,1 +1,2 @@
-# Aviasales App on React
+# Foobar
+AviaSales on React + Redux. Demo is [here](https://pip.pypa.io/en/stable/).
