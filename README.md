@@ -1,2 +1,2 @@
 # AviaSales
-AviaSales on React + Redux. Demo is [here](https://pip.pypa.io/en/stable/).
+AviaSales on React + Redux. Demo is [here](https://avia-sales-seven.vercel.app).
