@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { actionToggleFilter } from '../../actions/filtersActions';
+import { actionToggleFilter, actionSelectFilter } from '../../actions/filtersActions';
 
 import style from './FiltersList.module.scss';
 
 export default function FiltersList() {
-  const filtersList = useSelector((state) => state.filters);
+  const filtersList = useSelector(({ filters }) => filters.filtersList);
+
   const dispatch = useDispatch();
 
   const renderFilters = (list) => {
@@ -17,7 +18,10 @@ export default function FiltersList() {
             type="checkbox"
             id={filter.id}
             checked={filter.isActive}
-            onChange={() => dispatch(actionToggleFilter(filter.id, filter.isActive))}
+            onChange={() => {
+              dispatch(actionToggleFilter(filter.id, filter.isActive));
+              dispatch(actionSelectFilter(filter, filtersList));
+            }}
           />
           <label className={style['item__name']} htmlFor={filter.id}>
             {filter.name}

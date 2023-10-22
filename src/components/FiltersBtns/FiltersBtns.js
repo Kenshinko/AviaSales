@@ -6,7 +6,7 @@ import { actionSetActiveBtn } from '../../actions/btnsActions';
 import style from './FiltersBtns.module.scss';
 
 export default function FiltersBtns() {
-  const { btnsList, currentBtn } = useSelector((state) => state.btns);
+  const { btnsList, currentBtn } = useSelector(({ btns }) => btns);
   const dispatch = useDispatch();
 
   const renderFilters = (filtersList) => {

@@ -8,7 +8,7 @@ export default function BubbleLoader() {
 
   const errorMessage = isError ? 'Ждем ответа от сервера...' : null;
   const receivingMessage = !isAllReceived && !isError ? 'Получаем билетики...' : null;
-  const allReceivedMessage = isAllReceived ? 'Все билеты получены!' : null;
+  const allReceivedMessage = isAllReceived && !isError ? 'Все билеты получены!' : null;
 
   const getRingCollor = () => {
     if (isError) return '#a50b32';
